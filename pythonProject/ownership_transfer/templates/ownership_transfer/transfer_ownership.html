@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+{% block title %}{% endblock %}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Set the path to your background image */
+      background-size: cover; /* Adjust to cover the entire page */
+      background-position: center;
+      height: 100vh; /* Make sure the background covers the entire viewport height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .transfer-container
+     {
+      background-color: rgba(150, 150, 150, 0.8); /* Set a semi-transparent background color for the form container */
+      max-width: 500px;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+{% block content %}
+<div class="transfer-container">
+<p><a href="{% url 'account_home' %}">Account_home</a></p>
+  <h2>Transfer Ownership</h2>
+  <form method="post" action="{% url 'transfer_ownership' ownership_id=ownership.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Transfer Ownership</button>
+  </form>
+</div>
+{% endblock %}
+</body>
+</html>

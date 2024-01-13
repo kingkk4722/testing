@@ -1,0 +1,65 @@
+<!-- ownership_transfer/templates/ownership_transfer/device_info.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Information</title>
+
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1621592867256-8ef277cfb72b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(200, 200, 200, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #007bff; /* Blue color for headings */
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        .error-message {
+            color: #dc3545; /* Red color for error messages */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    {% block content %}
+     <button id="accountHomeBtn" onclick="location.href='{% url 'home' %}'">Home</button>
+        <h2>Device Information</h2>
+        {% if ownership %}
+            <p>Model: {{ ownership.model }}</p>
+            <p>Owner: {{ ownership.owner.username }}</p>
+            <p>IMEI Number: {{ ownership.IMEI_Number }}</p>
+        {% else %}
+            <div class="content">
+                <p class="error-message">No information found for the provided IMEI number.</p>
+            </div>
+        {% endif %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!-- ownership_transfer/templates/ownership_transfer/home.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add your CSS links and other head elements here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+      .content-container
+       {
+            background-image: url('https://images.unsplash.com/photo-1517644990595-ec8fd6a5157b?q=80&w=1933&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Set your desired background color */
+            padding: 20px; /* Adjust padding as needed */
+            border-radius: 10px; /* Add border-radius for rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+            margin: 20px 0; /* Add margin as needed */
+        }
+        .content-container h2 {
+            color: black; /* Set your desired heading color */
+            text-align: left;
+        }
+        .content-container h1 {
+            color: black; /* Set your desired heading color */
+            text-align: center;
+        }
+        .content-container p {
+            text-align: center;
+            color: black;
+        }
+        .content-container button {
+            margin: 10px; /* Add margin to buttons */
+        }
+      .navbar .getstarted
+    {
+	background: #106eea;
+	margin-left: 30px;
+	border-radius: 4px;
+	font-weight: 400;
+	color: #fff;
+	text-decoration: none;
+	padding: .5rem 1rem;
+	line-height: 2.3;
+}
+.navbar-nav a
+    {
+	font-size: 15px;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.navbar-light .navbar-brand
+    {
+	color: #000;
+	font-size: 25px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+    {
+	font-family: 'Comic Sans MS', sans-serif;
+}
+
+.section-padding {
+	padding: 100px 0;
+}
+.carousel-item {
+	height: 100vh;
+	min-height: 300px;
+}
+.carousel-caption {
+	bottom: 220px;
+	z-index: 2;
+}
+.carousel-caption h5 {
+	font-size: 45px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-top: 25px;
+}
+.carousel-caption p {
+	width: 60%;
+	margin: auto;
+	font-size: 18px;
+	line-height: 1.9;
+}
+.carousel-inner:before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 1;
+}
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+	.carousel-caption {
+		bottom: 370px;
+	}
+	.carousel-caption p {
+		width: 100%;
+	}
+	.card {
+		margin-bottom: 30px;
+	}
+	.img-area img {
+		width: 100%;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.navbar-nav {
+		text-align: center;
+	}
+	.carousel-caption {
+		bottom: 125px;
+	}
+	.carousel-caption h5 {
+		font-size: 17px;
+	}
+	.carousel-caption a {
+		padding: 10px 15px;
+		font-size: 15px;
+	}
+	.carousel-caption p {
+		width: 100%;
+		line-height: 1.6;
+		font-size: 12px;
+	}
+    </style>
+</head>
+<body>
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<header>
+<nav class="navbar navbar-expand-lg navigation-wrap">
+		<div class="container">
+			<a class="navbar-brand" href="#"><span class="text-warning">SMARTPHONE</span>OWNERSHIPS</a> <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+</nav>
+</header>
+<div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://images.unsplash.com/photo-1603184017968-953f59cd2e37?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Owner is Owner!</h5>
+        <p>Don't forget like vehicle you are too owner of Smartphone.</p>
+          <p><a href="#" class="btn btn-warning mt-3">Let's Know more about Owners of Smartphones</a></p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://images.unsplash.com/photo-1573152143286-0c422b4d2175?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Live owners!</h5>
+        <p>It's right to be owner.</p>
+          <p><a href="#" class="btn btn-warning mt-3">Let's Know more about Owners of Smartphones</a></p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://images.unsplash.com/photo-1613290907219-ee677464bd45?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Transfer Ownership</h5>
+        <p>Selling smartphone means too transfer ownership.</p>
+          <p><a href="#" class="btn btn-warning mt-3">Let's Know more about Owners of Smartphones</a></p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+ <div class="content-container">
+  <center><h1><br><br>Welcome Owners of Smartphones!</h1></center>
+  {% if user.is_authenticated %}
+    {% if user == profile_user %}
+      <p>Hello, {{ user.username }}! You are logged in.</p>
+      <a href="{% url 'account_home' %}">Go to Your Account</a>
+      <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+      <p></p>
+    {% endif %}
+
+
+  {% else %}
+
+  {% endif %}
+  <center><p><br>
+      To access your account and personalized features, please<br><br>
+      <button>
+      <a href="{% url 'login' %}" class="btn btn-primary" data-bs-toggle="tooltip" tabindex="-1" role="button" aria-disabled="false" data-bs-title="Login here">Login</a>
+      </button>
+      <button>
+      <a href="{% url 'register' %}" class="btn btn-secondary" data-bs-toggle="tooltip" tabindex="-1" role="button" aria-disabled="false" data-bs-title="Register here">Register</a>
+      </button>
+    </p></center>
+
+<h2>Search for Device</h2>
+  <form method="post" action="{% url 'home' %}" class="d-flex search form" role="search">
+    {% csrf_token %}
+    <div class="mb-3">
+    <label for="IMEI_Number">Enter IMEI Number:</label>
+    <input class="form-control-lg me-2" type="text" name="IMEI_Number" placeholder="Search" aria-label="IMEI_Number" required>
+    <button class="btn btn-outline-success btn-lg" type="submit">Search</button>
+    </div>
+  </form>
+  {% if error_message %}
+    <p style="color:red;">{{ error_message }}</p>
+  {% endif %}
+ </div>
+{% endblock %}
+    <script src="https:cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+
+
+         <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+
+
+
+</body>
+</html>

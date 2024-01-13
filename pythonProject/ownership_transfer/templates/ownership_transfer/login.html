@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+{% block title %}{% endblock %}
+
+{% block content %}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1529539795054-3c162aab037a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Set the path to your background image */
+      background-size: cover; /* Adjust to cover the entire page */
+      background-position: center;
+      height: 100vh; /* Make sure the background covers the entire viewport height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-container {
+      background-color: rgba(150, 150, 150, 0.8); /* Set a semi-transparent background color for the form container */
+      max-width: 500px;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      margin-top: 50px;
+    }
+
+    /* Add additional styles as needed */
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+      <button id="accountHomeBtn" onclick="location.href='{% url 'home' %}'">Home</button>
+    <center><h1>Login</h1></center>
+
+    <form method="post" action="{% url 'login' %}" id="loginForm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" id="loginBtn">Login</button>
+    </form>
+
+    <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+      <p>Forget Password? <a href="{% url 'password_reset' %}">Forgot password</a></p>
+  </div>
+
+  <script >
+    $(document).ready(function() {
+      // Attach CSRF token to all AJAX requests
+      $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+          if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", $("[name=csrfmiddlewaretoken]").val());
+          }
+        }
+      });
+
+      // Attach submit event handler to the form
+      $("#loginForm").submit(function(event) {
+
+        // Perform AJAX login request here
+        $.post($(this).attr("action"), $(this).serialize(), function(data) {
+          // Handle the response
+        });
+      });
+    });
+  </script>
+{% endblock %}
+</body>
+</html>

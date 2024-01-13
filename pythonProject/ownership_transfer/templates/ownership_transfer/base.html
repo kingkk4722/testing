@@ -1,0 +1,74 @@
+<!-- ownership_transfer/templates/ownership_transfer/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<!-- All CSS -->
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+
+    </head>
+<body>
+<header
+<nav class="navbar navbar-expand-lg navigation-wrap">
+		<div class="container">
+			<a class="navbar-brand" href="#"><span class="text-warning">SMARTPHONE</span>OWNERSHIPS</a> <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+</nav>
+</header>
+    <!-- Your custom script -->
+
+
+    <script>
+        var inactivityTimeout;
+
+        function resetInactivityTimeout() {
+            // Reset the inactivity timeout whenever there is user activity
+            clearTimeout(inactivityTimeout);
+            inactivityTimeout = setTimeout(logoutUser, 600000); // 5 minutes in milliseconds
+        }
+
+        function logoutUser() {
+            // Redirect to the logout URL or perform a logout action
+            window.location.href = '/logout/';
+        }
+
+        // Detect user activity on various events (e.g., mousemove, keydown)
+        $(document).on('mousemove keydown', function () {
+            resetInactivityTimeout();
+        });
+
+        // Initial setup
+        $(document).ready(function () {
+            resetInactivityTimeout();
+        });
+    </script>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+
+
+
+
+{% block content %}{% endblock %}
+
+</body>
+
+</html>

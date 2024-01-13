@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  {% block title %}{% endblock %}
+
+{% block content %}
+<style>
+ body {
+  font-family: 'Comic Sans MS', sans-serif;
+  background-image: url('https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover; /* Ensure the image covers the entire background */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+
+  .form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(170, 170, 170, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #004080;
+
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  label {
+    margin-top: 10px;
+  }
+
+  input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  button {
+    background-color: #007bff;
+      color: #fff;
+      padding: 8px 5px; /* Adjust padding as needed */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      font-size: 16px; /* Adjust font size as needed */
+  }
+  #accountHomeBtn
+  {
+      padding: 6px 4px; /* Adjust left and right padding */
+      font-size: 14px;
+      margin: 1;
+    }
+
+  button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+<div class="form-container">
+  <button id="accountHomeBtn" onclick="location.href='{% url 'account_home' %}'">Account_home</button>
+  <h2>ADD NEW SMARTPHONE</h2>
+
+  <form action="{% url 'add_smartphone' %}" method="post">
+    {% csrf_token %}
+    <label for="model">Smartphone Model:</label>
+    <input type="text" id="model" name="model" required>
+
+    <label for="owner">Owner:</label>
+    <input type="text" id="owner" name="owner" required>
+
+    <label for="IMEI_Number">IMEI Number:</label>
+    <input type="text" id="IMEI_Number" name="IMEI_Number" required>
+
+    <button type="submit">Add to your Account</button>
+  </form>
+</div>
+{% endblock %}
+</body>
+</html>

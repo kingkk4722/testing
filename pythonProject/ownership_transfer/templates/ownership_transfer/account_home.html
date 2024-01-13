@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+{% block title %}{% endblock %}
+
+{% block content %}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', sans-serif;
+      background-image: url(https://images.unsplash.com/photo-1537498425277-c283d32ef9db?q=80&w=1778&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); /* Light gray background */
+      color: #333; /* Dark text color */
+    }
+
+    .profile-container {
+      background-color: rgba(200, 200, 200, 0.8);
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #FFFFFFs; /* White container background */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-header {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .profile-picture {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 20px;
+    }
+
+    .profile-picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-info {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .profile-info p {
+      margin-bottom: 10px;
+    }
+
+    .ownership-records {
+      margin-top: 30px;
+    }
+
+    .ownership-record {
+      background-color: #FFFFFF; /* Light background for ownership records */
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .ownership-record a {
+      color: #007bff; /* Blue color for links */
+      text-decoration: none;
+    }
+
+    .logout-link {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      color: #dc3545; /* Red color for logout link */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-container">
+    <div class="profile-header">
+      <div class="profile-picture">
+        <img src="https://th.bing.com/th/id/OIP.oeW39w8P3h-9o4crfXry4QHaHa?rs=1&pid=ImgDetMain" alt="Profile Picture">
+      </div>
+      <h2>Welcome, {{ user.username }}!</h2>
+    </div>
+
+    <div class="profile-info">
+      <p>Mobile Number: {{ user_profile.mobile_number }}</p>
+      <p>Email: {{ user_profile.email }}</p>
+    </div>
+
+    <div class="ownership-records">
+      <h3>Your Ownership Records:</h3>
+      {% if user_ownerships %}
+        {% for ownership in user_ownerships %}
+          <div class="ownership-record">
+            {{ ownership.model }}'s {{ ownership.owner.username }}
+            ({{ ownership.IMEI_Number }})
+
+            {% if ownership.id %}
+              <br><a href="{% url 'transfer_ownership' ownership_id=ownership.id %}">Transfer Ownership</a>
+            {% else %}
+              <!-- Handle the case where ownership.id is not available -->
+              <span>No ID available</span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>No ownership records found.</p>
+      {% endif %}
+    </div>
+
+    <a href="{% url 'add_smartphone_page' %}" class="btn btn-primary">Add New Device</a>
+    <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+  </div>
+{% endblock %}
+</body>
+</html>

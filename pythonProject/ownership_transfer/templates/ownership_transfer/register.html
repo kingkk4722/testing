@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+{% block title %}{% endblock %}
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1543373014-cfe4f4bc1cdf?q=80&w=1948&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .register-container {
+    background-color: rgba(150, 150, 150, 0.8);
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  form {
+    margin-top: 50px;
+  }
+
+  h1 {
+    text-align: center; /* Center the heading */
+  }
+</style>
+</head>
+<body>
+{% block content %}
+
+<div class="register-container">
+  <button id="accountHomeBtn" onclick="location.href='{% url 'home' %}'">Home</button>
+  <h1>Register</h1>
+  <form method="post" action="{% url 'register' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Register</button>
+  </form>
+  <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+</div>
+{% endblock %}
+</body>
+</html>
